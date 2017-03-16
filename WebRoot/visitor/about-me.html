@@ -1,0 +1,73 @@
+<!DOCTYPE html xmlns:wb="http://open.weibo.com/wb">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>about-me</title>
+		<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		body{
+			height: 100%;
+		}
+		.about-page{
+			margin: 0 auto;
+			width:70% ;
+			height: 100%;
+		}
+		.about-page h1{
+			text-align: center;
+			line-height: 70px;
+		}
+		.about-page p{
+			
+			font-size: 16px;
+			line-height: 32px;
+		}
+		.lines {
+			text-align:center;
+			width: 64px;
+			margin: 0 auto;
+			background: white;
+		}
+		.line{
+			margin-right:40px;
+			float:left;
+			border:1px #4F4F4F solid;
+			font-size: 12px;
+			text-align: center;
+			display: block;
+			color: #1582bd;
+			text-decoration: none;
+			background-color:white;
+			line-height:22px; 
+			margin-bottom:10px;
+			width: 62px;
+			height: 22px;
+			border-radius: 5px 5px 5px 5px;
+		}
+		.with-tabs{
+			text-align: center;
+			font-size: 14px;
+			line-height: 0px;
+			
+		}
+		.ab-me-text{
+			margin: 0 auto;
+		}
+	</style>
+	<body id="this">
+		<div class="about-page">
+			<h1>关于我</h1>
+			<!--详细介绍-->
+			<div id="me" class = "ab-me-text"></div>
+			<!--联系方式-->
+			<div class = "lines">
+				<p>
+				<a class="line" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=oNPU0tXHx8zF2cHOx5SSlODR0Y7Dz80" style="text-decoration:none;"><span id="go-mail">写信</span></a>
+			</p>
+			<div class="line" ><wb:follow-button uid="2908891993" type="gray_1" width="67" height="24" ></wb:follow-button></div>
+			</div> 
+			
+		</div>
+	</body>
+</html>

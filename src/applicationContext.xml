@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx">
+	<!--导入分包xml  -->
+	<import resource="org/struggle_blog/admin/admin-spring.xml"/>
+	<import resource="org/struggle_blog/visitor/visitor-spring.xml"/>
+	<import resource="org/struggle_blog/ajax/ajax-spring.xml"/>
+	
+	<!--配置数据源，为数据库连接,可替代Hibernate配置的数据库连接  -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/struggle_blog"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="123456"></property>
+	</bean>
+	
+	<!--sessionFactory  -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!--这是Hibernate的实体类路径配置  -->
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+		<!--引用数据源dataSource  -->
+		<property name="dataSource" ref="dataSource"></property>
+		
+		<property name="hibernateProperties">    
+            <props>    
+                <!--配置Hibernate的方言-->    
+                <prop key="hibernate.dialect">    
+                 org.hibernate.dialect.MySQLDialect    
+                </prop>                    
+                <prop key="hibernate.hbm2ddl.auto">update</prop>    
+                    
+                <!--格式化输出sql语句-->    
+                <prop key="hibernate.show_sql">true</prop>    
+                <prop key="hibernate.format_sql">true</prop>      
+                <prop key="hibernate.use_sql_comments">true</prop> 
+            </props>    
+        </property> 
+	</bean>
+	<!--事务管理器，此配置才可在事务管理处注解事务 此为service -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+</beans>

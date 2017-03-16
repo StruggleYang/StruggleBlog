@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!--去除.action后缀为go作为伪装  -->
+	<constant name="struts.action.extension" value="go"></constant>
+	<package name="leavae_word" namespace="/" extends="json-default">
+		<action name="visitor_*" class="visitorWordAction" method="{1}">
+		<!-- json数据返回，全部留言 -->
+			<result name="success" type="json">
+				<param name="root">words</param>
+			</result>
+		</action>
+	</package>
+</struts>

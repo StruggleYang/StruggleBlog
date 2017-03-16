@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>发布文章</title>
+<style type="text/css">
+	#editor-f{
+		max-width: 70%;
+	}
+</style>
+</head>
+<link rel="stylesheet" href="/StruggleBlog/layui/css/layui.css"
+	media="all">
+	<link rel="stylesheet"
+	href="/StruggleBlog/wangEditor/css/wangEditor.css">
+<link rel="stylesheet" href="/StruggleBlog/css/admin.css" media="all">
+<script src="/StruggleBlog/layui/layui.js"></script>
+<script type="text/javascript" charset="UTF-8" src="/StruggleBlog/js/jquery-2.1.0.js" ></script>
+<body>
+<!--文章管理  -->
+<div id="editor-f">
+	<form class="layui-form" id="go-page" action="/StruggleBlog/page_savePage.go" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="oper" value="save">
+		<div class="layui-form-item">
+			<label class="layui-form-label">文章标题</label>
+			<div class="layui-input-block">
+				<input id="page-title" type="text" name="page.pageTitle" required lay-verify="required"
+					placeholder="请输入标题" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+
+		<div  class="layui-form-item">
+			<label class="layui-form-label">文章类型</label>
+				<select id="page-type" name="page.type.TId" lay-verify="required">
+					<!-- 此处ajax请求获取类型 -->
+					<option value='0'>请选择类型</option>
+				</select>
+		</div>
+		
+
+		<div class="layui-form-item layui-form-text">
+			<label class="layui-form-label">文章摘要</label>
+			<div class="layui-input-block">
+				<textarea id="page-zy" name="page.pageRemark" placeholder="请输入文章摘要"
+					class="layui-textarea"></textarea>
+			</div>
+		</div>
+		
+		<!--将文章内容赋值于隐藏域  -->
+		<input id="getWord" type="hidden" name = "page.pageWord">
+		<!-- end -->
+		<label class="layui-form-label">文章配图</label>
+		<div class="layui-form-item">
+			<input id="files" type="file"size="30" name="pageImg" />
+		</div>
+		
+	</form>
+	<!-- wangEditor模块 -->
+		<div id="editor"></div>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<input type="button" id="up-to-service" class="button" value="立即发布">
+				<input id = "reset-page" type="button" class="button" value="重置所有">
+			</div>
+		</div>
+</div>
+</body>
+<!-- 引入wangEditer -->
+<script type="text/javascript"
+	src="/StruggleBlog/wangEditor/js/lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript"
+	src="/StruggleBlog/wangEditor/js/wangEditor.min.js"></script>
+<script type="text/javascript" src="/StruggleBlog/js/admin.js"></script>
+</html>

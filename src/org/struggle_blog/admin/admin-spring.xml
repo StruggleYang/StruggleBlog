@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx">
+	<!--dao注入factory  -->
+	<bean id="adminDao" class="org.struggle_blog.admin.AdminDao">
+		<property name="factory" ref="sessionFactory"></property>
+	</bean>
+	<!--service注入dao  -->
+	<bean id="adminService" class="org.struggle_blog.admin.AdminService">
+		<property name="dao" ref="adminDao"></property>
+	</bean>
+	<bean id="imgAdds" class="org.struggle_blog.entity.ImgAdds"></bean>
+	<!--action注入service  -->
+	<bean id="adminLoginAction" class="org.struggle_blog.admin.AdminLoginAction">
+		<property name="service" ref="adminService"></property>
+	</bean>
+	<bean id="savePageAction" class="org.struggle_blog.admin.SavePageAction">
+		<property name="service" ref="adminService"></property>
+		<property name="imgAdds" ref="imgAdds"></property>
+	</bean>
+
+</beans>

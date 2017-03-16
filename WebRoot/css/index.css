@@ -1,0 +1,641 @@
+@CHARSET "UTF-8";			
+			/*全局字体*/
+			html{
+				background:#f9f9f9;
+			}
+			body {
+				margin: 0;
+				padding: 0;
+				background:#f9f9f9;
+				overflow-x: hidden;
+				overflow-y: hidden;
+				background-attachment: fixed;
+				/*定位菜单抽屉必须*/
+				width: 100%;
+				height: 100%;
+				font: 12px/200% "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
+				color: #666666;
+				font-weight: normal;
+				transition: all 0.2s ease 0.1s;
+			}
+			#div-max{
+				height: 100%;
+			}
+			#d-html-more{
+				background:#f9f9f9;
+				height: 100%;
+			}
+			
+			#i-zz{
+				position:absolute; 
+				width: 100%;
+				height: 100%;
+				top: 0; left: 0; bottom: 0; right: 0;
+				z-index: 99;
+				background:#f9f9f9 /* url("/StruggleBlog/img/bg.jpg") */;
+				background-size:cover;
+				background-position: center center;
+				background-attachment:fixed;
+			}
+			
+			#i-insertdiv{
+				margin: auto;  
+	  			position: absolute;  
+	  			width:500px;
+	  			height:400px;
+	  			z-index:101;
+	  			text-align:center;
+	  			top:-100px; left: 0; bottom:0; right: 0;
+	  			background:rgba(255,255,255,0);
+				border-radius: 7px 7px 7px 7px;
+			}
+			#i-insertdiv img{
+				box-shadow:0 0 10px 1px #1F1F1F, 0 0 1px 1px white;
+			}
+			#i-insertdiv p {
+				color:#1F1F1F;
+				font-size: 20px;
+			}
+			/* 头像旋转1 */
+			@keyframes  go-index{
+			  0% {
+			    transform: rotate(0deg);
+			  }
+			  100% {
+			    transform: rotate(360deg);
+			  }
+			}
+			#i-insertdiv img {
+				animation: go-index 5s /* infinite */ linear;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			/*侧滑抽屉开始*/
+			
+			.sidebar {
+				min-width:186px;
+				position: fixed;
+				background: #333333;
+				z-index:300;
+				/*#534F49*/
+				width: 20%;
+				max-width:310px;
+				left: 0;
+				top: 0;
+				height: 100%;
+				overflow: hidden;
+				transition: all 0.2s ease 0.1s;
+			}
+			
+			.main {
+				background:#f9f9f9;;
+				overflow: hidden;
+				position: relative;
+				min-height:100%;
+				top: 0;
+				left: 20%;
+				right: 0;
+				height: 100%;
+				margin:0px;
+				transition: all 0.2s ease 0.1s;
+			}
+			
+			.all-page{
+				width:70%;
+				min-height:100%;
+				margin: 0 auto;
+				left: -10%;
+				position: relative;
+				background:#f9f9f9;
+				z-index: 1;
+				margin-bottom: 150px;
+			}
+			 .by{
+				float:left;
+				height:150px;
+				background:#f9f9f9;
+				width: 100%;
+				left: -10%;
+				position: relative;
+				margin: 0 auto;
+				text-align: center;
+				border-top: 1px dashed #4F4F4F;
+				z-index: 1;
+			} 
+			.a-title:hover{
+				color: #00fd5f;
+			}
+			#class-h {
+				line-height: 60px;
+			}
+			.classify {
+				font-size:16px;
+				width: 70%;
+				margin: 0 auto;
+				line-height: 40px;
+			}
+			.read{
+				color: black;
+			}
+			
+			.read:hover{
+				color: #00fd5f;
+			}
+			.push{
+				height:150px;
+			}
+			
+			/*需要切换的class*/
+			
+			.big-page .main {
+				left: 0;
+				background:#f9f9f9;
+			}
+			
+			.big-page .sidebar {
+				left: -20%;
+			}
+			
+			.big-page .all-page {
+				min-height:100%;
+				left: 0;
+				margin-bottom: 150px;
+			}
+			.big-page .by,
+			.big-page.push {
+				left: 0;
+				height: 150px;
+			}
+			
+			.push,
+			.by{
+				height: 150px;
+			}
+			/*切换抽屉按钮*/
+			
+			.show-menu {
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+				border-radius: 50%;
+				z-index: 2;
+				position: fixed;
+				margin: 30px auto auto 25px;
+				width: 30px;
+				height: 30px;
+				border: none;
+				background-image: url(img/show-menu.png);
+				background-position: center center;
+				transition: all 0.2s ease 0.1s;
+				/*背景图居中*/
+			}
+			input[type="button"],button{
+				cursor: pointer;/*将鼠标移入时鼠标变为链接状*/
+			}
+			/*去掉点击边框*/
+			.show-menu:focus {
+				outline: none;
+			}
+			.show-menu:hover{
+				animation: spin 2s infinite linear;
+			}
+			/*侧滑抽屉结束*/
+			/*抽屉菜单列开始*/
+			/*菜单及头像容器居中*/
+			
+			.g-sdc.box {
+				width: 186px;
+				height: auto;
+				margin: 50px auto 0px auto;
+				text-align: center;
+			}
+			.m-nav{
+				padding-left:0px;
+			}
+			.m-hdimg img,
+			.m-pager-idx a {
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+				border-radius: 50%;
+				transition: all 1s;
+			}
+			
+			/*链接圆角*/
+			
+			.m-nav a,
+			.m-sch .txt {
+				-webkit-border-radius: 16px;
+				-moz-border-radius: 16px;
+				border-radius: 16px;
+			}
+			
+			a,
+			.hdimg img,
+			.m-sch .txt {
+				-webkit-transition: all .3s ease;
+				-moz-transition: all .3s ease;
+				-o-transition: all .3s ease;
+				transition: all .3s ease
+			}
+			
+			.m-hdimg img {
+				border: 2px solid #dcee06;
+				padding: 5px;
+				width: 100px;
+				height: 100px;
+				vertical-align: middle
+			}
+			/*主题颜色*/
+			
+			a,
+			.info a:hover,
+			.m-cprt a:hover {
+				color: #00fd5f;
+			}
+			/*鼠标移入菜单颜色*/
+			
+			.m-nav a:hover,
+			.m-sch .txt:hover,
+			.m-pager-idx a:hover {
+				background: #00fd5f;
+				color: white;
+			}
+			/* 侧栏文字颜色 */
+			
+			.m-hdimg .ttl a,
+			.m-about .cont,
+			.m-nav a,
+			.m-sch .txt {
+				color: white ;
+				text-decoration: none;
+			}
+			/*头像边线颜色*/
+			
+			.m-hdimg img {
+				border-color: #dcee06;
+			}
+			/*菜单列表样式*/
+				
+			.m-nav li {
+				margin: 7px 0px;
+				list-style: none;
+			}
+			/*将各个菜单链接转换为块*/
+			
+			.m-nav a,
+			.m-sch .txt {
+				display: block;
+				width: 162px;
+				padding: 6px 12px;
+				height: 20px;
+				background: #5c5852;
+				border-bottom: 1px solid #423f3a;
+				background: rgba(255, 255, 255, 0.1);
+				border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+				line-height: 20px;
+				white-space: nowrap;
+			}
+			/* 博客名称字号 */
+			
+			.m-hdimg .ttl {
+				font-size: 16px;
+				letter-spacing: 1px;
+				line-height: 30px;
+			}
+			
+			.m-nav {
+				width: 186px;
+				display: block;
+				list-style-type: none;
+				-webkit-margin-before: 1em;
+				-webkit-margin-after: 1em;
+				-webkit-margin-start: 0px;
+				-webkit-margin-end: 0px;
+				-webkit-padding-start: 0px;
+				margin: 0 auto;
+				-moz-padding-left:-40px;
+			}
+			/*搜索文字居中*/
+			
+			.m-sch .txt {
+				width: 162px;
+				border-width: 0 0 0px;
+				text-align: center;
+				font: 12px/200% "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
+			}
+			/*去除搜索输入框焦点时的边框	*/
+			
+			.txt:focus {
+				outline: none;
+			}
+			/*抽屉列表菜单结束*/
+			/*正文中部开始*/
+			.show-info {
+				height:auto;
+				padding:20px 0px 10px 0px;
+				border-bottom: 1px black dashed;
+			}
+			
+			.hdimgs {
+				width: 60px;
+				height: 70px;
+				margin: 0 auto;
+			}
+			
+			.hdimg img {
+				border: #00fd5f solid;
+				padding:2px;
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+				border-radius: 50%;
+				transition: all 1s;
+			}
+			/*头像旋转2*/
+			@keyframes spin {
+			  0% {
+			    transform: rotate(0deg);
+			  }
+			  100% {
+			    transform: rotate(359deg);
+			  }
+			}
+			.hdimg img:hover {
+				animation: spin 2s infinite linear;
+			}
+			
+			/*  header*/
+			.left-todo{
+				width: 50%; float: left; text-align: center; font-size: 25px;
+			}
+			.right-todo{
+				width: 50%; float: right; text-align: center;font-size:25px ;
+			}
+			/*文章正式开始*/
+			/*一文一容器*/
+			
+			.qzon-class {
+				width:100%;
+				height: 280px;
+				padding: 10px 10px;
+				float:left;
+				border-bottom: 1px dashed black;
+			}
+			/*一图一容器*/
+			.page-right {
+				display: inline-block;
+				width: 56%;
+				height: 300px;
+				float: right;
+				margin-left: 1%;
+			}
+			.page-left {
+				display: inline-block;
+				width: 56%;
+				height: 300px;
+				float: left;
+				margin-right: 1%;
+			}
+			.page-cover-left {
+				display: inline-block;
+				width: 40%;
+				height: 260px;
+				overflow:hidden;/*防止图片溢出，将其隐藏*/
+				float: left;
+			}
+			.page-cover-right {
+				margin-right:-2px;
+				display: inline-block;
+				height: 260px;
+				overflow:hidden;
+				width: 40%;
+				float: right;
+				
+			}
+			
+			.page-cover-left img {
+				cursor: pointer; /*移入鼠标小手*/
+				float: right;
+				margin-top:20px;
+			}
+			
+			.page-cover-left img:hover,
+			.page-cover-right img:hover{
+				filter: grayscale(100%);
+				/* filter: blur(1px); */
+			}
+			
+			.page-cover-right img {
+				cursor: pointer;
+				float: left;
+				margin-top:20px;
+			}
+			/*文章左右分布，图文交错*/
+			
+			
+			/*阅读全文链接块状，*/
+			
+			.readAll {
+				font-size: 14px;
+				color: gray;
+				float: right;
+				margin-right: 8%;
+				display: block;
+				width: 100px;
+				height:35px;
+				line-height: 35px;
+				border: 2px #00FD5F solid;
+				text-align: center;
+			}
+			.a-title{
+				color: #4F4F4F;
+			}
+			.readAll:hover {
+				background: #00FD5F;
+				color: white;
+			}
+			
+			.page-left a[class="readAll right"]{
+				float: left;	
+				margin-left: 6%;
+			}
+			.zy{
+				font-size:16px ;
+			}
+			/*文章结束*/
+			/*分页开始*/
+			.next-more{
+				float:left;
+				width: 100%;
+				height: 70px;
+				margin: 5px auto;
+				margin-top:50px;
+				text-align: center;
+			}
+			.next-more span{
+				float: left;
+				display: block;
+				height: 40px;
+				width: 33.3%;
+			}
+			.next-more a {
+				margin:0 auto;
+				display: block;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background-color:#4F4F4F;
+				font-size: 25px;
+				line-height: 45px;
+				text-align: center;
+			}	
+			#go-top {
+				line-height: 40px;
+			}
+			.next-more a:hover {
+				background-color:#00FD5F;
+				color:white;
+			}
+			/*正文中部结束*/
+			/*响应式布局*/
+			/*大屏电脑  */
+			@media screen and (min-width: 1550px) {
+				.sidebar{
+					width: 310px;
+				}
+				.all-page{
+					width: 1000px;
+				}
+				.big-page .all-page{
+					width: 1200px;
+				}
+				.main{
+					left: 310px;
+				}
+				.m-nav li {
+				margin: 20px 0px;
+				}
+			}
+			/*@小屏电脑*/
+			/*左侧抽屉响应*/
+			@media screen and (max-width: 1025px) {
+				.sidebar{
+					min-width: 186px;
+				}
+				.big-page .sidebar{
+					min-width: 186px;
+				}
+				.m-nav a,
+				.m-sch .txt {
+					width: 60px;
+				}
+				.m-hdimg img {
+					width: 70px;
+					height: 70px;
+				}
+				.m-nav {
+					width: 94px;
+				}
+				.qzon-class img{
+					margin-top:50px; 
+				}
+			}
+			@media screen and (max-width: 930px) {
+				#zz{
+					background: none;
+				}
+				.main{
+					left: 186px;
+					
+				}
+				
+				.big-page .all-page{
+					margin-top:-20px;
+					width: 100%;
+					height: 100%;
+				}
+				.all-page{
+					margin-top:0px;
+				}
+				.qzon-class{
+					width:auto;
+					height:auto;
+				}
+				.page-cover-right,.page-left,
+				.page-cover-left,.page-right{
+					width: 100%;
+					height: auto;
+				}
+				.page-left a[class="readAll right"],
+				.readAll{
+					float:none;
+					margin: 0px auto;
+				}
+				.left-todo,.right-todo{
+					margin-top:8px;
+					font-size:16px;
+					width: 100%;
+					height: auto;
+				}
+				
+				.show-info{
+					float:left;
+					width:100%;
+					/* background:url("/StruggleBlog/img/bg.jpg");
+					background-size:cover; */
+					background-color:#333333;
+					height: auto;
+					border-bottom: 1px gray dashed;
+				}
+				.hdimg{
+					margin-top:20px;
+					float:left;
+					width:100%;
+					text-align:center;
+				}
+				.left-todo p,.right-todo p{
+					color:white;
+					line-height: 0px;
+				}
+				.next-more{
+					float:left;
+					width: 100%;
+					height: 60px;
+					margin: 20px auto 0px auto;
+					text-align: center; 
+				}
+				.big-page .sidebar {
+    				left: -186px;
+				}
+				.by{
+					height:150px;
+					width:100%;
+					float: left;
+					margin: 0 auto;
+					text-align: center;
+					border-top: 1px dashed #4F4F4F;
+				}
+				#word{
+					width: 90%;
+					height: 100px;
+				}
+				.more-link ul {
+					width:130px;
+				}
+				.about-page {
+					width:100%;
+				}
+				
+				#insertdiv{
+					width: 100%;
+				}
+				#i-insertdiv{
+					width: 100%;
+					height: 50%;
+				}
+				#i-insertdiv p{
+					font-size: 14px;
+				}
+			}
+			/*响应式布局*/
+			/*结束*/

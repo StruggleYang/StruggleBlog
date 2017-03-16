@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!--去除.action后缀为go作为伪装  -->
+	<constant name="struts.action.extension" value="go"></constant>
+	<package name="ajax_get" namespace="/" extends="json-default">
+		<action name="ajax_*" class="ajaxAction" method="{1}">
+			<!-- json数据返回，博客信息-->
+			<result name="getInfo" type="json">
+				<param name="root">bloginfo</param>
+			</result>
+			<!--返回文章数据集合  -->
+			<result name="getPages" type="json">
+				<param name="root">ps</param>
+			</result>
+			<!--返回类型集合  -->
+			<result name="getTypes" type="json">
+				<param name="root">types</param>
+			</result>
+			<result name="getAllLinks" type="json">
+				<param name="root">links</param>
+			</result>
+			<!-- 将文章id所对应文章内容转发到阅读界面 -->
+			<result name="getPageOne">/visitor/readPage.jsp</result>
+			<result name="updatePageOne">/admin/update-page.jsp</result>
+		</action>
+	</package>
+</struts>

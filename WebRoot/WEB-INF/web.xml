@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<display-name>Struggle_Blog</display-name>
+
+	<!-- Spring的OpenSessionInView实现 解决一定的no session问题-->
+<filter>
+    <filter-name>openSessionInViewFilter</filter-name>
+    <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter
+    </filter-class>
+ 
+<!-- 
+指定org.springframework.orm.hibernate3.LocalSessionFactoryBean在spring配置文件中的名称,默认值为sessionFactory。 如果LocalSessionFactoryBean在spring中的名称不是sessionFactory,该参数一定要指定,否则会出现找不到sessionFactory的例外。所以默认可以不写
+-->
+ <init-param>
+     <param-name>sessionFactoryBean</param-name>
+   <param-value>sessionFactory</param-value>
+  </init-param> 
+</filter>
+<filter-mapping>
+    <filter-name>openSessionInViewFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+
+
+	<!--拦截未登录不能访问管理员jsp页面 开始 -->
+	<filter>
+		<filter-name>SessionInvalidate</filter-name>
+		<filter-class>org.struggle_blog.admin.SessionCheckFilter</filter-class>  <!-- 过滤器核心类的class地址 -->
+		<init-param>
+			<param-name>checkSessionKey</param-name>  <!-- session中需要检查的key -->
+			<param-value>adInfo</param-value>
+		</init-param>
+		<init-param>
+			<param-name>redirectURL</param-name>  <!-- 过滤重定向的地址 -->
+			<param-value>/index.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>notCheckURLList</param-name>  <!-- 不需要过滤的jsp -->
+			<param-value>/index.jsp,/admin/imgUpLoad.jsp</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>SessionInvalidate</filter-name>  <!-- 需要过滤的文件 -->
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<!--拦截未登录不能访问管理员jsp页面 结束 -->
+
+	<!--Struts2引入配置 -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.go</url-pattern>
+	</filter-mapping>
+	<!--Strut2结束 -->
+
+	<!--Spring配置开始 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+
+	<!--Spring配置结束 -->
+</web-app>

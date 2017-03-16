@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!-- 实体映射    -->
+<hibernate-configuration>
+
+	<session-factory>
+		<property name="show_sql">true</property>
+		<property name="connection.autocommit">true</property>
+		<mapping resource="org/struggle_blog/entity/Comment.hbm.xml" />
+		<mapping resource="org/struggle_blog/entity/Type.hbm.xml" />
+		<mapping resource="org/struggle_blog/entity/Admin.hbm.xml" />
+		<mapping resource="org/struggle_blog/entity/Link.hbm.xml" />
+		<mapping resource="org/struggle_blog/entity/Page.hbm.xml" />
+		<mapping resource="org/struggle_blog/entity/LeaveWord.hbm.xml" />
+		<mapping resource="org/struggle_blog/entity/ImgAdds.hbm.xml" />
+		<mapping resource="org/struggle_blog/entity/BlogInfo.hbm.xml" />
+	</session-factory>
+
+</hibernate-configuration>

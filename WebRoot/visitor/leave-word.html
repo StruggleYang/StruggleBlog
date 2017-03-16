@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>留言</title>
+	</head>
+	<link rel="stylesheet"  href="/StruggleBlog/css/leave-word.css"  />
+	<script type="text/javascript" src="/StruggleBlog/js/jquery-2.1.0.js" ></script>
+	<script type="text/javascript" src="/StruggleBlog/js/leave-word.js"></script>
+
+	<body>
+		<div class="word-page">
+			<h1>你想说什么？</h1>
+			<!--留言公告-->
+			<p>*号为必填项,请留言吧！</p>
+			<!--文本输入域-->
+			<form id="forms">
+				<textarea  autofocus  id="word"></textarea>
+				<br />
+				<span id="txt">*</span>
+				<br />
+				<div id="inputs">
+					<span class="text">昵称：</span>
+					<input type="text" value="Name*" onfocus="if(this.value=='Name*'){this.value='';}" onblur="if(this.value==''){this.value='Name*';}" id="name" /><span id="nameT"></span>
+					<br />
+					<span class="text">邮箱：</span>
+					<input type="text" value="Email*" onfocus="if(this.value=='Email*'){this.value='';}" onblur="if(this.value==''){this.value='Email*';}" id="email"/><span id="emailT"></span>
+					<br />
+					<span class="text">网站：</span>
+					<input type="url" value="Http://" onfocus="if(this.value=='Http://'){this.value='';}" onblur="if(this.value==''){this.value='Http://';}" id="url"/><span id="urlT"></span>
+					<br />
+					<br />
+				</div>
+				<input type="reset" value="清空" />
+				<input type="button" value="发布" id="su"/>
+			</form>
+			<h1 >他们都说：</h1>
+		</div>
+		<div class="history">
+			<p id="msg" align="center"></p>
+			<ul id="lw"></ul>
+			<div class="next-more" id="next-more-lw">
+					<span><a href="javascript:void(0);" id="lw-up">&larr;</a></span><span><a href="javascript:void(0);" id="lw-first"><b>&and;</b></a></span> <span><a id="lw-next" href="javascript:void(0);">&rarr;</a></span> 
+				</div>
+		</div>
+		
+	</body>
+
+</html>

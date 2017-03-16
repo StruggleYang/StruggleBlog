@@ -1,0 +1,112 @@
+@CHARSET "UTF-8";	
+	html{
+		background:#f9f9f9;
+	}		
+	.word-page {
+			margin: 0 auto;
+			width: 100%;
+			height: 100%;
+		}
+		
+		.word-page h1 {
+			text-align: center;
+			line-height: 70px;
+		}
+		
+		.word-page p,
+		form {
+			text-align: center;
+			font-size: 16px;
+			line-height: 32px;
+		}
+	
+		.word-page form input[type="button"],
+		input[type="reset"] {
+			background-color: #4F4F4F;
+			border: none;
+			text-align: center;
+			height: 30px;
+			width: 70px;
+			border-radius: 16px;
+			color: #00FD5F;
+		}
+		
+		input[type="button"],
+		input[type="reset"] {
+			cursor: pointer;
+			/*将鼠标移入时鼠标变为链接状*/
+		}
+		#su:hover{
+			background-color: #00FD5F;
+			color: white;
+		}
+		#word{
+			width: 50%;
+			height: 100px;
+		}
+		input[type="reset"]:hover{
+			background-color: #00FD5F;
+			color: white;
+		}
+		
+		.text {
+			text-align: left;
+		}
+		
+		input[type="text"],
+		input[type="url"] {
+			width: 250px;
+			height: 20px;
+			border-top: 0px;
+			border-left: 0px;
+			border-right: 0px;
+			border-bottom: 1px dashed #666666;
+			color: #666666;
+			
+		}
+		
+		input:focus {
+			outline: none;
+		}
+		
+		textarea {
+			font-size: 16px;
+			border-radius: 5px;
+			border: 1px dashed #666666;
+		}
+	
+		.history ul{
+			display: block;
+	
+		}
+		.history{
+			margin: 0 auto;
+			width: 50%;
+			text-align: left;
+		}
+		#lww{
+			text-indent:2em; padding:0px; margin:0px;
+			font-size: 16px;
+		}
+		#lw li{
+			line-height: 30px;
+		}
+		#lw a{
+			color: #1F1F1F;
+			font-size: 14px;
+			font-weight:bold;
+		}
+		#lw-first{
+			line-height: 40px;
+		}
+		
+		#next-more-lw {
+			left: 0px;
+		}
+		@media screen and (max-width:800px){
+			.history{
+				width: 100%;
+			}
+		}
+		
+		

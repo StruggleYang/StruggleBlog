@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<include file="org/struggle_blog/admin/adminAction.xml"></include>
+	<include file="org/struggle_blog/visitor/wordAction.xml"></include>
+	<include file="org/struggle_blog/ajax/ajax-struts.xml"></include>
+	<!--去除.action后缀为html作为伪装  -->
+	<constant name="struts.action.extension" value="go"></constant>
+</struts>
