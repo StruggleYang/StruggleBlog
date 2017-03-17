@@ -18,5 +18,6 @@ pc-后台管理：  |  ![pc](http://i1.piimg.com/567571/8269fc60f0806c45.png)  
 移动设备-加载页：  |  ![phone](http://p1.bqimg.com/567571/c6b0a6d7860dd57f.jpg)    
 移动设备-主页-抽屉打开：  |  ![phone](http://p1.bqimg.com/567571/67ab15d9cbdadc25.jpg)    
 移动设备-主页-抽屉关闭：  |  ![phone](http://p1.bqimg.com/567571/7299b01b0734cf14.jpg)    
-移动设备-底部分页及top：  |  ![phone](http://p1.bqimg.com/567571/fe46df91ec17615a.jpg)    
-###end
+移动设备-底部分页及top：  |  ![phone](http://p1.bqimg.com/567571/fe46df91ec17615a.jpg)      
+  
+ ##  end
